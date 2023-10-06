@@ -18,6 +18,9 @@ concurrency:
 jobs:
   reuse:
     uses: ./.github/workflows/reuse-lint.yaml
+  nix-check:
+    needs: [ reuse ]
+    uses: ./.github/workflows/nix-check.yaml
   rust-codegen:
     needs: [ reuse ]
     uses: ./.github/workflows/rust-codegen.yaml
