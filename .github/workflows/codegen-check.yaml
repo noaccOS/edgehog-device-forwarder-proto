@@ -26,7 +26,9 @@ jobs:
           echo "$HOME/.local/bin" >> "$GITHUB_PATH"
       - name: Install rust toolchain
         uses: dtolnay/rust-toolchain@stable
+      - name: Check depencies version
+        run: ./scripts/check-dependencies.sh
       - name: Generate code
-        run: make
+        run: make all
       - name: Check diff in generated code
         run: ./scripts/check-diff.sh
